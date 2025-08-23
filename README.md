@@ -5,15 +5,11 @@
 This automated script builds a **Debian package (.deb) for [digiKam](https://invent.kde.org/graphics/digikam)** directly from the official Git repository.  
 Perfect for advanced users who want the latest features and improvements on Debian, Ubuntu, or derived distributions.
 
----
-
 ## 📸 About digiKam
 
 > *digiKam is an advanced open-source digital photo management application that runs on Linux, Windows, and MacOS. The application provides a comprehensive set of tools for importing, managing, editing, and sharing photos and raw files.*
 
 🔗 Official website: [https://invent.kde.org/graphics/digikam](https://invent.kde.org/graphics/digikam)
-
----
 
 ## ✅ Script Features
 
@@ -26,8 +22,6 @@ Perfect for advanced users who want the latest features and improvements on Debi
   - `Conflicts: digikam`
   - `Provides: digikam`
 - 📜 Detailed logging in `build_*.log` files
-
----
 
 ## ⚙️ Prerequisites
 
