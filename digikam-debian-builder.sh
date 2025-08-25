@@ -25,6 +25,30 @@ done
 # --- Journalisation ---
 exec > >(tee -a "$LOGFILE") 2>&1
 
+# === 🔧 Initialisation du dépôt digiKam si nécessaire ===
+echo "=== Initialisation du dépôt $SRC_DIR ==="
+
+if [[ -d "$SRC_DIR" ]]; then
+    if [[ -d "$SRC_DIR/.git" ]]; then
+        echo "✅ Dépôt existant. Mise à jour avec 'git pull'..."
+        cd "$SRC_DIR"
+        git pull --recurse-submodules
+        cd ..
+    else
+        echo "❌ Le dossier $SRC_DIR existe mais n'est pas un dépôt Git (.git manquant)."
+        echo "Supprimez-le avec 'rm -rf $SRC_DIR' si nécessaire."
+        exit 1
+    fi
+else
+    echo "📥 Dépôt non trouvé. Clonage depuis invent.kde.org..."
+    git clone https://invent.kde.org/graphics/digikam.git "$SRC_DIR"
+    if [[ $? -ne 0 ]]; then
+        echo "❌ Échec du clonage du dépôt digiKam"
+        exit 1
+    fi
+    echo "✅ Dépôt cloné avec succès dans $SRC_DIR"
+fi
+
 # --- Mise à jour du dépôt ---
 echo "=== Mise à jour du dépôt git dans $SRC_DIR ==="
 if [[ ! -d "$SRC_DIR" ]]; then
