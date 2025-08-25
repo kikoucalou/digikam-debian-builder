@@ -13,7 +13,7 @@ Perfect for advanced users who want the latest features and improvements on Debi
 
 ## ✅ Script Features
 
-- 🔁 Automatic update from the official `master` branch
+- 🔁 Automatic clone or update from the official `master` branch
 - 🏷️ Version detection (Git tag, commit hash, timestamp)
 - 📦 Full `.deb` package generation using `dpkg-buildpackage`
 - 🔧 Automatic dependency detection via `CMakeLists.txt`
